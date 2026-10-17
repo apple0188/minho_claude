@@ -1,0 +1,12 @@
+{
+  "handle": "@acupofenglish_official",
+  "kicker": "ENGLISH TIP",
+  "slides": [
+    { "type": "cover", "title": "[표지 제목]\n여기에 **핵심 한 줄**", "sub": "[부제] 게시물 내용을 받으면 채워 넣을 자리입니다." },
+    { "type": "body", "title": "[본문 소제목]", "text": "[본문] 한 장에 3~4줄 정도가 가장 잘 읽힙니다.\n**굵게** 표시한 부분은 진하게 강조됩니다." },
+    { "type": "body", "title": "[예문이 있는 장]", "text": "[설명 한두 줄]", "examples": [ { "en": "[English example sentence]", "ko": "[한국어 해석]" } ] },
+    { "type": "cta", "title": "영어를 한 잔의 커피처럼,\n천천히 깊게.", "sub": "천천히 좋은 것을 남기며 성장하는 영어회화.",
+      "info": [ ["지점", "안양 · 숙대입구 · 김포 · 송도"], ["온라인", "클라우드 클래스"], ["프로그램", "미드뽀개기 · 티키타카 · Games"], ["습관", "66 Days 영어 루틴"] ],
+      "button": "AI 레벨테스트 · aceedugroup.com" }
+  ]
+}

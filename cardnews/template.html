@@ -1,0 +1,66 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:P;src:url(fonts/Pretendard-Regular.woff2);font-weight:400}
+@font-face{font-family:P;src:url(fonts/Pretendard-Medium.woff2);font-weight:500}
+@font-face{font-family:P;src:url(fonts/Pretendard-SemiBold.woff2);font-weight:600}
+@font-face{font-family:P;src:url(fonts/Pretendard-Bold.woff2);font-weight:700}
+@font-face{font-family:P;src:url(fonts/Pretendard-ExtraBold.woff2);font-weight:800}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#888;font-family:P,"Apple SD Gothic Neo",sans-serif;-webkit-font-smoothing:antialiased;word-break:keep-all}
+.card{width:1080px;height:1350px;position:relative;overflow:hidden;background:linear-gradient(180deg,#fff 0%,#fff 66%,#F5F5F7 100%);color:#1D1D1F;margin-bottom:20px}
+.top{position:absolute;top:80px;left:96px;right:96px;display:flex;align-items:center;justify-content:space-between}
+.logo{height:52px;display:block}
+.pg{font-size:24px;font-weight:500;color:#A1A1A6;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.pg b{color:#1D1D1F;font-weight:600}
+.in{position:absolute;left:96px;right:96px;top:250px}
+.kick{font-size:26px;font-weight:700;color:#C4872A;letter-spacing:.08em}
+.hl{color:#C4872A}
+/* 표지 */
+.cover .in{top:auto;bottom:250px}
+.cover h1{margin-top:30px;font-size:96px;font-weight:800;line-height:1.16;letter-spacing:-.045em}
+.cover .sub{margin-top:40px;font-size:36px;font-weight:400;line-height:1.5;color:#6E6E73;letter-spacing:-.025em}
+.swipe{position:absolute;left:96px;right:96px;bottom:96px;display:flex;justify-content:space-between;align-items:center;font-size:24px;color:#86868B;letter-spacing:-.01em}
+.rule{position:absolute;left:96px;right:96px;bottom:160px;height:1px;background:#D2D2D7}
+/* 본문 */
+.num{font-size:30px;font-weight:700;color:#C4872A;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.body h2{margin-top:22px;font-size:68px;font-weight:700;line-height:1.24;letter-spacing:-.04em}
+.body .txt{margin-top:44px;font-size:36px;font-weight:400;line-height:1.66;color:#424245;letter-spacing:-.025em}
+.body .txt b{font-weight:700;color:#1D1D1F}
+.ex{margin-top:56px;background:#F5F5F7;border-radius:36px;padding:48px 52px}
+.ex .lb{font-size:22px;font-weight:700;color:#86868B;letter-spacing:.1em}
+.ex .en{margin-top:18px;font-size:44px;font-weight:700;line-height:1.35;letter-spacing:-.02em}
+.ex .ko{margin-top:14px;font-size:30px;line-height:1.5;color:#6E6E73;letter-spacing:-.02em}
+.ex + .ex{margin-top:24px}
+.foot{position:absolute;left:96px;right:96px;bottom:96px;display:flex;justify-content:space-between;font-size:22px;color:#A1A1A6}
+/* 마지막 */
+.cta .in{top:auto;bottom:490px}
+.cta h2{margin-top:30px;font-size:80px;font-weight:800;line-height:1.2;letter-spacing:-.045em}
+.cta .sub{margin-top:36px;font-size:34px;line-height:1.55;color:#6E6E73;letter-spacing:-.025em}
+.info{position:absolute;left:96px;right:96px;bottom:222px;border-top:1px solid #D2D2D7;padding-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:28px 40px}
+.info .k{font-size:22px;color:#86868B}
+.info .v{margin-top:8px;font-size:30px;font-weight:600;letter-spacing:-.02em}
+.btn{position:absolute;left:96px;right:96px;bottom:96px;height:76px;border-radius:38px;background:#1D1D1F;color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:600;letter-spacing:-.01em}
+</style></head><body><div id="root"></div>
+<script>
+const D = window.__DATA__;
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+// **강조** → 포인트 컬러, 줄바꿈 → <br>
+const fmt = (s, tag='span', cls='hl') => esc(s).replace(/\*\*(.+?)\*\*/g, `<${tag} class="${cls}">$1</${tag}>`).replace(/\n/g, '<br>');
+const N = D.slides.length, pad = n => String(n).padStart(2, '0');
+const head = i => `<div class="top"><img class="logo" src="logo.png"><div class="pg"><b>${pad(i+1)}</b> / ${pad(N)}</div></div>`;
+let bodyNo = 0;
+document.getElementById('root').innerHTML = D.slides.map((s, i) => {
+  if (s.type === 'cover') return `<section class="card cover">${head(i)}
+    <div class="in"><div class="kick">${esc(s.kicker || D.kicker)}</div><h1>${fmt(s.title)}</h1>${s.sub ? `<div class="sub">${fmt(s.sub)}</div>` : ''}</div>
+    <div class="rule"></div><div class="swipe"><span>${esc(D.handle)}</span><span>옆으로 넘겨보세요 →</span></div></section>`;
+  if (s.type === 'cta') return `<section class="card cta">${head(i)}
+    <div class="in"><div class="kick">${esc(s.kicker || 'A CUP OF ENGLISH')}</div><h2>${fmt(s.title)}</h2>${s.sub ? `<div class="sub">${fmt(s.sub)}</div>` : ''}</div>
+    <div class="info">${(s.info || []).map(([k, v]) => `<div><div class="k">${esc(k)}</div><div class="v">${esc(v)}</div></div>`).join('')}</div>
+    <div class="btn">${esc(s.button)}</div></section>`;
+  bodyNo++;
+  const ex = (s.examples || []).map(e => `<div class="ex"><div class="lb">${esc(e.label || 'EXAMPLE')}</div><div class="en">${fmt(e.en)}</div>${e.ko ? `<div class="ko">${fmt(e.ko)}</div>` : ''}</div>`).join('');
+  return `<section class="card body">${head(i)}
+    <div class="in"><div class="num">${esc(s.no || pad(bodyNo))}</div><h2>${fmt(s.title)}</h2>${s.text ? `<div class="txt">${fmt(s.text, 'b', '')}</div>` : ''}${ex}</div>
+    <div class="foot"><span>${esc(D.handle)}</span><span>aceedugroup.com</span></div></section>`;
+}).join('');
+</script></body></html>
