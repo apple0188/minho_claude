@@ -3,8 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>플랜듀 | 교육에 핏을 맞추다</title>
+<title>플랜듀 | 그 회사에 딱, 핏을 맞추다</title>
 <meta name="description" content="기업·공공기관·보험사 교육, 회사마다 다른 고민에 핏을 맞춰 설계합니다. 강의, 힐링 워크숍, 외부 연수 코스, 원데이 클래스까지.">
+<meta property="og:title" content="플랜듀 | 그 회사에 딱, 핏을 맞추다">
+<meta property="og:description" content="기업·공공기관·보험사 맞춤형 교육 — 강의, 힐링 워크숍, 외부 연수, 원데이 클래스">
+<meta property="og:type" content="website">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
 @font-face { font-family: 'Pretendard Local'; font-weight: 400; src: url(../../cardnews/fonts/Pretendard-Regular.woff2) format('woff2'); }
@@ -27,7 +30,7 @@ a { color: inherit; text-decoration: none; }
 .btn.primary:hover { background: var(--brand-2); }
 .btn.ghost { border: 1.5px solid currentColor; background: transparent; }
 .btn.accent { background: var(--accent); color: #fff; }
-.eyebrow { color: var(--accent); font-weight: 700; font-size: 14px; letter-spacing: .06em; }
+.eyebrow { color: #A85B10; font-weight: 700; font-size: 14px; letter-spacing: .06em; }
 section { padding: 96px 0; }
 h2.sec { font-size: clamp(28px, 4vw, 42px); line-height: 1.25; letter-spacing: -0.03em; margin: 10px 0 14px; font-weight: 800; }
 p.lead { color: var(--sub); font-size: 17px; max-width: 640px; margin: 0; }
@@ -40,10 +43,16 @@ p.lead { color: var(--sub); font-size: 17px; max-width: 640px; margin: 0; }
 .opening .piece i { position: absolute; width: 20px; height: 20px; border-radius: 50%; background: var(--accent); right: -8px; top: -8px; animation: snap .7s cubic-bezier(.3,1.6,.5,1) .5s both; }
 .opening .word { opacity: 0; animation: up .6s ease .9s forwards; }
 .opening .word small { display: block; font-size: .36em; font-weight: 600; opacity: .7; letter-spacing: .3em; }
+.opening .word em { display: block; font-style: normal; font-size: .42em; color: #FFC98A; margin-top: 6px; opacity: 0; animation: up .5s ease 1.3s forwards; }
+.opening.skip { display: none; }
+html.seen .opening { display: none; }
+html.seen .hero h1 em::after { animation-delay: .2s; }
 @keyframes snap { from { transform: translate(60px,-60px) scale(.4); opacity: 0; } to { transform: none; opacity: 1; } }
 @keyframes up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 @keyframes openOut { to { opacity: 0; visibility: hidden; } }
 @media (prefers-reduced-motion: reduce) { .opening { display: none; } }
+
+.preview-band { background: #15201E; color: #FFC98A; font-size: 13px; text-align: center; padding: 8px 16px; }
 
 /* nav */
 header { position: sticky; top: 0; z-index: 10; background: rgba(250,248,243,.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
@@ -73,9 +82,10 @@ header { position: sticky; top: 0; z-index: 10; background: rgba(250,248,243,.9)
 .fit .row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--sub); font-weight: 600; }
 .fit .req { margin: 14px 0 18px; display: grid; gap: 8px; }
 .fit .req div { background: var(--paper); border-radius: 12px; padding: 11px 14px; font-size: 15px; display: flex; gap: 10px; opacity: 0; animation: up .5s ease forwards; }
-.fit .req div:nth-child(1) { animation-delay: 2.5s; } .fit .req div:nth-child(2) { animation-delay: 2.75s; } .fit .req div:nth-child(3) { animation-delay: 3s; } .fit .req div:nth-child(4) { animation-delay: 3.25s; }
+.fit .req div:nth-child(1) { animation-delay: .2s; } .fit .req div:nth-child(2) { animation-delay: .45s; } .fit .req div:nth-child(3) { animation-delay: .7s; } .fit .req div:nth-child(4) { animation-delay: .95s; }
+.fit:not(.on) .req div, .fit:not(.on) .out { animation-play-state: paused; }
 .fit .req b { color: var(--sub); font-weight: 600; min-width: 44px; }
-.fit .out { background: var(--brand); color: #fff; border-radius: 16px; padding: 16px 18px; opacity: 0; animation: up .6s ease 3.7s forwards; }
+.fit .out { background: var(--brand); color: #fff; border-radius: 16px; padding: 16px 18px; opacity: 0; animation: up .6s ease 1.4s forwards; }
 .fit .out small { color: #FFC98A; font-weight: 700; font-size: 12px; letter-spacing: .06em; }
 .fit .out p { margin: 6px 0 0; font-weight: 700; font-size: 16px; line-height: 1.5; }
 .fit .tag { display: inline-flex; gap: 6px; align-items: center; background: #FDF1E3; color: #B86A1C; padding: 4px 10px; border-radius: 99px; font-size: 12px; font-weight: 700; }
@@ -97,7 +107,6 @@ header { position: sticky; top: 0; z-index: 10; background: rgba(250,248,243,.9)
 .svc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 44px; }
 .svc .card { border-radius: var(--radius); background: #fff; border: 1px solid var(--line); overflow: hidden; display: flex; flex-direction: column; }
 .svc .img { aspect-ratio: 4/3; display: grid; place-items: center; color: rgba(255,255,255,.9); font-size: 12px; font-weight: 600; position: relative; }
-.svc .img::after { content: '현장 사진 자리'; position: absolute; bottom: 10px; right: 12px; border: 1px dashed rgba(255,255,255,.6); padding: 2px 8px; border-radius: 99px; font-size: 11px; }
 .svc .i1 { background: linear-gradient(135deg, #0F4C45, #2A7A6E); } .svc .i2 { background: linear-gradient(135deg, #C9762A, #E8A95E); }
 .svc .i3 { background: linear-gradient(135deg, #2E5E7A, #5D93AE); } .svc .i4 { background: linear-gradient(135deg, #5B4A7A, #8E7BB0); }
 .svc .img b { font-size: 40px; }
@@ -115,7 +124,7 @@ header { position: sticky; top: 0; z-index: 10; background: rgba(250,248,243,.9)
 .step h4 { margin: 0 0 6px; font-size: 18px; }
 .step p { margin: 0; color: rgba(255,255,255,.65); font-size: 14px; }
 .safe { margin-top: 22px; display: flex; gap: 14px; align-items: center; background: rgba(232,150,58,.12); border: 1px solid rgba(232,150,58,.3); border-radius: var(--radius); padding: 18px 22px; font-size: 15px; }
-.safe b { color: #FFC98A; }
+.safe b { color: #FFC98A; flex-shrink: 0; white-space: nowrap; }
 
 /* cases */
 .cases .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; }
@@ -182,7 +191,14 @@ footer .logo small { color: rgba(255,255,255,.5); }
 @media (max-width: 560px) {
   section { padding: 68px 0; }
   .wrap { padding: 0 16px; }
-  .hero { padding: 48px 0 72px; }
+  .hero { padding: 28px 0 56px; }
+  .hero .cta { margin-top: 22px; }
+  .who { margin-top: 20px; }
+  .fit { padding: 18px; }
+  .fit .req div { padding: 9px 12px; font-size: 14px; }
+  .step { display: grid; grid-template-columns: 32px 1fr; padding: 16px 18px; }
+  .step::before { grid-row: span 2; margin: 3px 0 0; }
+  .steps { gap: 8px; }
   .contrast { grid-template-columns: 1fr; }
   .svc { grid-template-columns: 1fr 1fr; gap: 12px; }
   .svc .body { padding: 16px; } .svc h3 { font-size: 16px; } .svc p { font-size: 13px; }
@@ -197,9 +213,11 @@ footer .logo small { color: rgba(255,255,255,.5); }
 </style>
 </head>
 <body>
+<div class="preview-band">시안 미리보기 · 사진, 지난 교육 사례, 연락처는 팀장님 자료로 채워집니다</div>
 
-<div class="opening" aria-hidden="true">
-  <div class="mark"><div class="piece"><span></span><i></i></div><div class="word">플랜듀<small>PLANDUE</small></div></div>
+<script>try{if(sessionStorage.getItem("pd-seen"))document.documentElement.classList.add("seen");sessionStorage.setItem("pd-seen","1")}catch(e){}</script>
+<div class="opening" aria-hidden="true" onclick="this.classList.add('skip')">
+  <div class="mark"><div class="piece"><span></span><i></i></div><div class="word">플랜듀<small>PLANDUE</small><em>핏하게.</em></div></div>
 </div>
 
 <header>
@@ -212,7 +230,7 @@ footer .logo small { color: rgba(255,255,255,.5); }
       <li><a href="#cases">지난 교육</a></li>
       <li><a href="#column">칼럼</a></li>
     </ul>
-    <a href="#contact" class="btn primary">섭외하기</a>
+    <a href="#contact" class="btn primary" data-type="섭외">섭외하기</a>
   </div>
 </header>
 
@@ -220,11 +238,11 @@ footer .logo small { color: rgba(255,255,255,.5); }
 <section class="hero">
   <div class="wrap">
     <div>
-      <div class="eyebrow">맞춤형 기업교육 · 플랜듀</div>
-      <h1>교육에 딱,<br><em>핏</em>을 맞추다.</h1>
-      <p class="lead">회사마다 고민이 다르니 교육도 달라야 합니다. 여기저기 헤매지 마세요. 플랜듀가 귀사에 꼭 맞는 프로그램을 빠르게 찾아 설계합니다.</p>
+      <div class="eyebrow">핏하게, 맞춤형 기업교육</div>
+      <h1>그 회사에 딱,<br><em>핏</em>을 맞추다.</h1>
+      <p class="lead">회사마다 고민이 다르니, 교육도 달라야 합니다. 플랜듀는 대상과 목적을 먼저 듣고, 그 회사에 꼭 맞는 프로그램을 설계합니다.</p>
       <div class="cta">
-        <a href="#contact" class="btn primary">교육 프로그램 문의하기 →</a>
+        <a href="#contact" class="btn primary" data-type="문의">교육 프로그램 문의하기 →</a>
         <a href="#cases" class="btn ghost">지난 교육 프로그램 보기</a>
       </div>
       <div class="who"><b>함께하는 곳</b><span>기업</span><span>공공기관</span><span>보험사</span></div>
@@ -234,12 +252,12 @@ footer .logo small { color: rgba(255,255,255,.5); }
       <div class="req">
         <div><b>대상</b>영업조직 40명</div>
         <div><b>목적</b>지친 팀 분위기 회복</div>
-        <div><b>일정</b>1박 2일 · 지방 외부 연수</div>
+        <div><b>일정</b>1박 2일 · 근교 워크숍</div>
         <div><b>조건</b>강의 + 쉼 + 식사 모두</div>
       </div>
       <div class="out">
         <small>플랜듀의 핏</small>
-        <p>힐링 워크숍 패키지 — 맞춤 강사 2인, 체험 클래스, 대관·식사까지 한 번에</p>
+        <p>힐링 워크숍 패키지 — 맞춤 강사 2인, 체험 클래스, 대관과 식사까지 한 번에</p>
       </div>
     </div>
   </div>
@@ -249,15 +267,15 @@ footer .logo small { color: rgba(255,255,255,.5); }
 <section class="why" id="why">
   <div class="wrap">
     <div class="eyebrow">왜 플랜듀인가</div>
-    <h2 class="sec">강사를 소개하는 곳이 아니라,<br>귀사에 맞추는 곳입니다.</h2>
+    <h2 class="sec">강사만 연결하는 곳이 아니라,<br>그 회사에 맞추는 곳입니다.</h2>
     <div class="grid">
-      <div class="card"><div class="ic">핏</div><h3>100% 맞춤형 설계</h3><p>같은 교육을 찍어 내지 않습니다. 대상·목적·분위기를 듣고, 그 회사에만 맞는 구성으로 다시 짭니다.</p></div>
-      <div class="card"><div class="ic">눈</div><h3>수천 번의 강의를 직접 본 눈</h3><p>커리큘럼만 봐도, 강의 5분만 봐도 압니다. 귀사 현장에서 통할 강사와 프로그램을 고릅니다.</p></div>
-      <div class="card"><div class="ic">✓</div><h3>사고 없는 운영</h3><p>장소·대관·식사부터 강사 일정 안내까지 꼼꼼히 챙깁니다. 좋은 교육은 애초에 계획을 잘 짜는 데서 시작합니다.</p></div>
+      <div class="card"><div class="ic">01</div><h3>처음부터 맞춤 설계</h3><p>같은 교육을 찍어 내지 않습니다. 대상·목적·분위기를 듣고, 그 회사에만 맞는 구성으로 다시 짭니다.</p></div>
+      <div class="card"><div class="ic">02</div><h3>수천 번의 강의를 직접 본 눈</h3><p>커리큘럼과 강의 5분이면, 현장에서 통할지 보입니다. 그 회사에 맞는 강사와 프로그램을 고릅니다.</p></div>
+      <div class="card"><div class="ic">03</div><h3>끝까지 챙기는 운영</h3><p>장소와 대관, 식사부터 강사 일정 안내까지 꼼꼼히 챙깁니다. 좋은 교육은 애초에 계획을 잘 짜는 데서 시작합니다.</p></div>
     </div>
     <div class="contrast">
-      <div class="no"><small>흔한 방식</small>강사 프로필을 보내 드리고, 고르시면 연결해 드립니다.</div>
-      <div class="yes"><small>플랜듀 방식</small>목적을 먼저 묻고, 프로그램·강사·운영까지 한 번에 맞춰 드립니다.</div>
+      <div class="no"><small>흔한 방식</small>프로필 목록을 보내고, 고르는 일은 담당자 몫으로 남깁니다.</div>
+      <div class="yes"><small>플랜듀 방식</small>목적을 먼저 듣고, 강사 섭외부터 프로그램·운영까지 한 번에 맞춥니다.</div>
     </div>
   </div>
 </section>
@@ -270,7 +288,7 @@ footer .logo small { color: rgba(255,255,255,.5); }
     <p class="lead">특강 한 번부터 외부 연수 전체 코스까지, 필요한 만큼 맞춰 드립니다.</p>
     <div class="svc">
       <div class="card"><div class="img i1"><b>01</b></div><div class="body"><h3>기업 교육 · 특강</h3><p>리더십, 소통, AI 활용 등 주제와 대상에 맞춘 강의</p></div></div>
-      <div class="card"><div class="img i2"><b>02</b></div><div class="body"><h3>힐링 워크숍</h3><p>외부로 떠나는 쉼과 배움. 대관·식사까지 함께</p></div></div>
+      <div class="card"><div class="img i2"><b>02</b></div><div class="body"><h3>힐링 워크숍</h3><p>외부로 떠나는 쉼과 배움. 대관과 식사까지 함께</p></div></div>
       <div class="card"><div class="img i3"><b>03</b></div><div class="body"><h3>외부 연수 · 필드 트립</h3><p>지역과 목적에 맞춘 연수 코스와 현장 프로그램 설계</p></div></div>
       <div class="card"><div class="img i4"><b>04</b></div><div class="body"><h3>원데이 클래스</h3><p>팀이 함께 만들고 체험하는 하루짜리 프로그램</p></div></div>
     </div>
@@ -287,10 +305,10 @@ footer .logo small { color: rgba(255,255,255,.5); }
       <div class="step"><h4>문의</h4><p>대상·인원·일정·예산을 간단히 남겨 주세요</p></div>
       <div class="step"><h4>핏 진단</h4><p>교육 목적과 조직 분위기를 함께 정리합니다</p></div>
       <div class="step"><h4>맞춤 제안</h4><p>프로그램 구성과 강사를 제안드립니다</p></div>
-      <div class="step"><h4>운영</h4><p>장소·대관·식사·강사 일정까지 현장을 챙깁니다</p></div>
+      <div class="step"><h4>운영</h4><p>장소, 대관과 식사, 강사 일정까지 현장을 챙깁니다</p></div>
       <div class="step"><h4>마무리</h4><p>결과 공유와 정산까지 깔끔하게 끝냅니다</p></div>
     </div>
-    <div class="safe"><b>사고 제로</b>강사님께는 전날과 당일 아침에 일정·장소·길 안내가 자동으로 나갑니다. 날짜나 장소 착오가 생기지 않습니다.</div>
+    <div class="safe"><b>꼼꼼한 사전 안내</b>강사님께 전날과 당일 아침, 일정·장소·오시는 길을 미리 안내해 드립니다.</div>
   </div>
 </section>
 
@@ -300,11 +318,10 @@ footer .logo small { color: rgba(255,255,255,.5); }
     <div class="eyebrow">지난 교육 프로그램</div>
     <h2 class="sec">이런 고민에, 이렇게 맞췄습니다</h2>
     <div class="grid">
-      <div class="case"><div class="who2">대기업 A사<span>영업조직 · 1박 2일</span></div><div class="q">성과 압박에 지친 팀, 그냥 쉬게 하기엔 아쉬워요.</div><div class="a">오전엔 회복탄력성 강의, 오후엔 체험 클래스, 저녁엔 팀 대화. 대관과 식사까지 한 번에 운영했습니다.</div></div>
-      <div class="case"><div class="who2">공공기관 B<span>전 직원 · 특강</span></div><div class="q">AI 교육은 해야 하는데, 직원 수준이 제각각이에요.</div><div class="a">사전 설문으로 수준을 나눠 입문·실무 두 반으로 구성했습니다. 반마다 다른 강사를 배치했습니다.</div></div>
+      <div class="case"><div class="who2">기업 A사<span>영업조직 · 1박 2일</span></div><div class="q">성과 압박에 지친 팀, 그냥 쉬게 하기엔 아쉬워요.</div><div class="a">오전엔 회복탄력성 강의, 오후엔 체험 클래스, 저녁엔 팀 대화. 대관과 식사까지 한 번에 운영했습니다.</div></div>
+      <div class="case"><div class="who2">공공기관 B<span>신규 직원 · 필드 트립</span></div><div class="q">입사 동기끼리 서먹해요. 강의실 교육은 이미 많이 했고요.</div><div class="a">지역 현장을 함께 걷는 필드 트립에 원데이 클래스를 묶었습니다. 이동과 식사까지 한 번에 맡았습니다.</div></div>
       <div class="case"><div class="who2">보험사 C<span>지점장 · 리더십</span></div><div class="q">지난번 교육은 좋았다는데, 현장이 바뀌지 않았어요.</div><div class="a">강의 대신 실제 사례로 하는 워크숍으로 바꿨습니다. 교육 후 실천 과제까지 설계했습니다.</div></div>
     </div>
-    <p class="note-ex">※ 시안용 예시입니다. 실제 진행 사례로 교체합니다. 고객사명과 강사명은 공개하지 않습니다.</p>
   </div>
 </section>
 
@@ -316,8 +333,8 @@ footer .logo small { color: rgba(255,255,255,.5); }
       <a href="#" class="btn ghost">블로그 바로가기</a>
     </div>
     <div class="cols">
-      <a href="#"><div class="thumb t1">사고 없는 연수는<br>계획에서 갈린다</div><div class="body"><small>연수 기획</small><h3>외부 연수, 강사가 다른 장소로 간 날 생긴 일</h3></div></a>
-      <a href="#"><div class="thumb t2">우리 회사에 맞는<br>AI 교육 고르기</div><div class="body"><small>AI 교육</small><h3>직원 수준이 제각각일 때 AI 교육을 나누는 법</h3></div></a>
+      <a href="#"><div class="thumb t1">연수 전날,<br>플랜듀가 챙기는 것</div><div class="body"><small>연수 기획</small><h3>외부 연수 전날, 꼭 다시 확인하는 다섯 가지</h3></div></a>
+      <a href="#"><div class="thumb t2">강의실 밖에서<br>배우는 하루</div><div class="body"><small>필드 트립</small><h3>신규 직원 팀워크, 강의실 밖에서 만드는 법</h3></div></a>
       <a href="#"><div class="thumb t3">워크숍이<br>힐링이 되려면</div><div class="body"><small>힐링 워크숍</small><h3>쉼과 배움, 둘 다 잡는 워크숍 하루 구성</h3></div></a>
     </div>
   </div>
@@ -329,17 +346,15 @@ footer .logo small { color: rgba(255,255,255,.5); }
     <div>
       <div class="eyebrow">문의 · 섭외</div>
       <h2 class="sec">목적만 알려 주세요.<br>핏은 플랜듀가 맞춥니다.</h2>
-      <p class="lead">남겨 주시면 1영업일 안에 연락드립니다. 소개서 대신 이 페이지 링크를 공유하셔도 좋습니다.</p>
+      <p class="lead">남겨 주시면 빠르게 연락드립니다.</p>
       <div class="info">
-        <div><b>전화</b><span>010-○○○○-○○○○</span></div>
-        <div><b>이메일</b><span>contact@○○○.co.kr</span></div>
         <div><b>상담</b><span>평일 09:00 – 18:00</span></div>
       </div>
     </div>
-    <form onsubmit="event.preventDefault(); this.querySelector('button').textContent='접수되었습니다 ✓';">
+    <form onsubmit="event.preventDefault(); this.querySelector('button').textContent='시안에서는 전송되지 않습니다';">
       <div class="seg">
-        <label><input type="radio" name="t" checked><span>교육 프로그램 문의</span></label>
-        <label><input type="radio" name="t"><span>강사 섭외</span></label>
+        <label><input type="radio" name="t" value="문의" checked><span>교육 프로그램 문의</span></label>
+        <label><input type="radio" name="t" value="섭외"><span>강사 섭외</span></label>
       </div>
       <label class="f">회사(기관)명<input required placeholder="예) ○○주식회사"></label>
       <label class="f">담당자 성함<input required placeholder="홍길동"></label>
@@ -357,16 +372,22 @@ footer .logo small { color: rgba(255,255,255,.5); }
   <div class="wrap">
     <div>
       <div class="logo"><i></i>플랜듀<small>PLANDUE</small></div>
-      <p style="margin:12px 0 0">교육에 딱, 핏을 맞추다 — 맞춤형 기업교육 · 워크숍 · 연수</p>
+      <p style="margin:12px 0 0">그 회사에 딱, 핏을 맞추다 — 맞춤형 기업교육 · 워크숍 · 연수</p>
     </div>
     <div style="text-align:right">
-      <p style="margin:0">상호 플랜듀 · 사업자등록번호 ○○○-○○-○○○○○</p>
-      <p style="margin:4px 0 0">주소 ○○시 ○○구 ○○로 ○○ · © 2026 PLANDUE</p>
+      <p style="margin:0">© 2026 PLANDUE</p>
     </div>
   </div>
 </footer>
 
-<div class="mbar"><a href="#cases" class="btn ghost">지난 교육</a><a href="#contact" class="btn primary">섭외하기</a></div>
+<div class="mbar"><a href="#cases" class="btn ghost">지난 교육</a><a href="#contact" class="btn primary" data-type="섭외">섭외하기</a></div>
 
+<script>
+(function(){
+  var f=document.querySelector('.fit');
+  if('IntersectionObserver' in window){new IntersectionObserver(function(e,o){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('on');o.disconnect();}})},{threshold:.4}).observe(f);}else{f.classList.add('on');}
+  document.querySelectorAll('[data-type]').forEach(function(a){a.addEventListener('click',function(){var r=document.querySelector('input[name=t][value="'+a.dataset.type+'"]');if(r)r.checked=true;});});
+})();
+</script>
 </body>
 </html>
