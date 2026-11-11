@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>플랜듀 견적서</title>
+<link rel="stylesheet" href="doc.css">
+<style>
+  .title { text-align: center; font-size: 26pt; font-weight: 800; letter-spacing: .4em; margin: 6px 0 18px; }
+  .parties { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+  .parties table { margin: 0; }
+  .parties th { width: 30%; }
+  .total { display: flex; justify-content: space-between; align-items: center; background: var(--brand); color: #fff; border-radius: 8px; padding: 12px 16px; margin: 10px 0 14px; }
+  .total b { font-size: 9.5pt; font-weight: 500; opacity: .85; }
+  .total span { font-size: 17pt; font-weight: 800; }
+  td small { display: block; color: var(--sub); font-size: 8.6pt; margin-top: 2px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="brandbar"><span class="logo"><i></i>플랜듀 프로젝트</span><span>견적번호 PD-20261111-01</span></div>
+
+<div class="title">견 적 서</div>
+
+<div class="parties">
+  <table>
+    <tr><th colspan="2">수신</th></tr>
+    <tr><th>상호</th><td><strong>플랜듀</strong> 귀중</td></tr>
+    <tr><th>담당</th><td>대표(팀장)님</td></tr>
+    <tr><th>견적일</th><td>2026년 11월 11일</td></tr>
+    <tr><th>유효기간</th><td>견적일로부터 30일 (2026.12.11까지)</td></tr>
+  </table>
+  <table>
+    <tr><th colspan="2">공급자</th></tr>
+    <tr><th>상호</th><td><span class="blank"></span></td></tr>
+    <tr><th>대표자</th><td><span class="blank"></span> (인)</td></tr>
+    <tr><th>사업자번호</th><td><span class="blank"></span></td></tr>
+    <tr><th>연락처</th><td><span class="blank"></span></td></tr>
+  </table>
+</div>
+
+<p>아래와 같이 견적합니다. — <strong>플랜듀 홈페이지 구축 및 업무 자동화 3개월 프로젝트</strong></p>
+
+<div class="total"><b>합계 금액 (부가세 포함)</b><span>₩7,700,000</span></div>
+
+<table>
+  <thead>
+    <tr><th style="width:5%">No</th><th>항목 / 내용</th><th class="num" style="width:9%">수량</th><th class="num" style="width:17%">금액(원)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td><strong>기획 · 브랜딩</strong><small>킥오프 인터뷰, 사이트 구조 설계, 메인 카피·대표 소개글 작성, 워드마크 정리</small></td><td class="num">1식</td><td class="num">800,000</td></tr>
+    <tr><td>2</td><td><strong>대표 브랜딩 홈페이지 디자인 · 개발</strong><small>메인·서비스·프로세스·프로그램·대표 소개·칼럼·문의, 반응형, 문의 폼 알림, 기본 SEO</small></td><td class="num">1식</td><td class="num">2,200,000</td></tr>
+    <tr><td>3</td><td><strong>블로그 콘텐츠 자동화</strong><small>주제 캘린더, AI 초안 → 승인 → 홈페이지 자동 게시, 네이버 블로그용 원고 패키지, 주 2편 운영(3개월)</small></td><td class="num">1식</td><td class="num">1,200,000</td></tr>
+    <tr><td>4</td><td><strong>강사 관리 시스템</strong><small>강사 DB, 교육 건별 배정·일정 관리, 단체 문자/알림톡 템플릿 발송</small></td><td class="num">1식</td><td class="num">1,500,000</td></tr>
+    <tr><td>5</td><td><strong>전자세금계산서 자동 발행 연동</strong><small>발행 API 연동, 교육 완료 시 발행 요청, 월별 매출·미수금 현황표</small></td><td class="num">1식</td><td class="num">700,000</td></tr>
+    <tr><td>6</td><td><strong>운영 지원 · 교육 · 인수인계</strong><small>3개월 주간 리포트, 수정 요청 대응, 사용 교육, 계정·매뉴얼 인계</small></td><td class="num">3개월</td><td class="num">600,000</td></tr>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="3">공급가액</td><td class="num">7,000,000</td></tr>
+    <tr><td colspan="3">부가가치세 (10%)</td><td class="num">700,000</td></tr>
+    <tr><td colspan="3">합계</td><td class="num">7,700,000</td></tr>
+  </tfoot>
+</table>
+
+<h2>결제 조건</h2>
+<table>
+  <thead><tr><th>구분</th><th>시점</th><th class="num">비율</th><th class="num">금액(공급가)</th></tr></thead>
+  <tbody>
+    <tr><td>착수금</td><td>계약 체결 시</td><td class="num">50%</td><td class="num">3,500,000</td></tr>
+    <tr><td>중도금</td><td>홈페이지 오픈 · 검수 완료 시 (5주차 예정)</td><td class="num">30%</td><td class="num">2,100,000</td></tr>
+    <tr><td>잔금</td><td>3개월 종료 · 최종 보고 시</td><td class="num">20%</td><td class="num">1,400,000</td></tr>
+  </tbody>
+</table>
+
+<h2>별도 비용 (실비, 플랜듀 명의로 직접 결제)</h2>
+<ul>
+  <li>도메인 · 호스팅 이용료</li>
+  <li>문자/알림톡 발송 건당 요금, 전자세금계산서 발행 건당 요금</li>
+  <li>유료 AI 서비스 · 이미지 · 폰트 등 라이선스 (필요 시 사전 협의)</li>
+</ul>
+
+<h2>선택 옵션 (별도 견적)</h2>
+<ul>
+  <li>유튜브 채널 기획 · 촬영 · 편집 · 업로드 대행</li>
+  <li>3개월 이후 운영 연장 및 자동화 고도화</li>
+</ul>
+
+<p class="note" style="margin-top:14px">※ 범위 외 추가 요청은 협의 후 별도 견적합니다. ※ 본 견적은 2026년 11월 상담 내용을 기준으로 작성되었습니다.</p>
+
+</div>
+</body>
+</html>

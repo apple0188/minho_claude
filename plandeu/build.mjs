@@ -1,0 +1,30 @@
+// 사용법: node plandeu/build.mjs
+// → plandeu/pdf/ 에 기획서·견적서·계약서 PDF, 홈페이지 시안 데스크톱/모바일 스크린샷 생성
+import { chromium } from '/opt/node-tools/node_modules/playwright/index.mjs';
+import fs from 'node:fs'; import path from 'node:path';
+const dir = path.dirname(new URL(import.meta.url).pathname);
+const out = path.join(dir, 'pdf');
+fs.mkdirSync(out, { recursive: true });
+
+const docs = ['01_기획서', '02_견적서', '03_계약서'];
+const browser = await chromium.launch();
+const page = await browser.newPage();
+for (const name of docs) {
+  await page.goto('file://' + path.join(dir, name + '.html'));
+  await page.evaluate(() => document.fonts.ready);
+  await page.emulateMedia({ media: 'print' });
+  await page.pdf({ path: path.join(out, `플랜듀_${name.slice(3)}.pdf`), format: 'A4', printBackground: true, preferCSSPageSize: true });
+  console.log('PDF', name);
+}
+
+// 홈페이지 시안 스크린샷
+const hp = 'file://' + path.join(dir, 'homepage', 'index.html');
+for (const [label, vp] of [['desktop', { width: 1440, height: 900 }], ['mobile', { width: 390, height: 844 }]]) {
+  const p = await browser.newPage({ viewport: vp, deviceScaleFactor: 2 });
+  await p.goto(hp, { waitUntil: 'load' });
+  await p.evaluate(() => document.fonts.ready);
+  await p.screenshot({ path: path.join(out, `플랜듀_홈페이지시안_${label}.png`), fullPage: true });
+  console.log('PNG', label);
+  await p.close();
+}
+await browser.close();
