@@ -34,7 +34,7 @@
 | `homepage/index.html` | 회사 중심 원페이지 시안, 오프닝 애니메이션, 모바일 하단 고정 버튼 |
 | `pdf/` | PDF와 시안 스크린샷. `node plandeu/build.mjs`로 다시 생성 |
 
-## 구글 드라이브 (비공개)
+## 구글 드라이브 (견적서·계약서 v2는 11/11 "링크가 있는 모든 사용자 보기"로 공유함, 기획서는 비공개)
 - 견적서 v2: https://drive.google.com/file/d/1L6gOi187AOQcsqPqpcMRGNVLd1GBrUzB/view
 - 계약서 v2: https://drive.google.com/file/d/1g-2fP0Zu2_nWia-ee-Mr8dPvP-_fL8bZ/view
 - 기획서 v2: https://drive.google.com/file/d/1vxdAELOzOmsa5uIPxaUvDc7RMwStsM6A/view
