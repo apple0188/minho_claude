@@ -24,6 +24,7 @@ for (const [label, vp] of [['desktop', { width: 1440, height: 900 }], ['mobile',
   await p.goto(hp, { waitUntil: 'load' });
   await p.evaluate(() => document.fonts.ready);
   await p.waitForTimeout(4500); // 오프닝 애니메이션이 끝날 때까지 대기
+  await p.addStyleTag({ content: '.mbar{display:none!important}' }); // 고정 하단바는 전체 캡처에서 중간에 떠 보이므로 숨김
   await p.screenshot({ path: path.join(out, `플랜듀_홈페이지시안_${label}.png`), fullPage: true });
   console.log('PNG', label);
   await p.close();

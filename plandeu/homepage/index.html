@@ -150,8 +150,8 @@ header { position: sticky; top: 0; z-index: 10; background: rgba(250,248,243,.9)
 .contact .info b { width: 70px; color: rgba(255,255,255,.6); font-weight: 500; }
 form { background: #fff; color: var(--ink); border-radius: 24px; padding: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 form .seg { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-form .seg label { display: block; }
-form .seg input { position: absolute; opacity: 0; }
+form .seg label { display: block; position: relative; }
+form .seg input { position: absolute; opacity: 0; width: 1px; height: 1px; left: 0; top: 0; }
 form .seg span { display: block; text-align: center; padding: 12px; border-radius: 12px; border: 1.5px solid var(--line); font-weight: 700; font-size: 15px; cursor: pointer; color: var(--sub); }
 form .seg input:checked + span { border-color: var(--brand); color: var(--brand); background: var(--mint); }
 form .seg input:focus-visible + span { outline: 2px solid var(--accent); }
