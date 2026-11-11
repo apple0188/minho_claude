@@ -21,6 +21,11 @@
 | `doc.css` | 문서 공통 스타일(Pretendard, 딥그린 #0F4C45 + 앰버 #E8963A) |
 | `build.mjs` | `node plandeu/build.mjs` → PDF·스크린샷 다시 생성 |
 
+## 구글 드라이브 (PDF, 비공개)
+- 견적서: https://drive.google.com/file/d/19oQ8L4uLQqDimkdtcRoZAM5R-On6awxw/view
+- 계약서: https://drive.google.com/file/d/11SbuIvSKnNBbO0Jj9ExnNZFmpQ7gRIvV/view
+- 문서를 고치면 PDF를 다시 만들고 드라이브 파일도 갱신할 것
+
 ## 채워야 할 빈칸
 - 견적서·계약서의 공급자(을) 상호, 대표자, 사업자번호, 연락처, 입금 계좌
 - 플랜듀 사업자 정보와 계약 시작일
