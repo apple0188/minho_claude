@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>플랜듀 | 기업교육 컨설팅</title>
-<meta name="description" content="플랜듀는 기업교육을 목적부터 설계합니다. 연수 기획, 커리큘럼 설계, 강사 매칭, 운영까지 한 번에.">
+<title>플랜듀 | 교육에 핏을 맞추다</title>
+<meta name="description" content="기업·공공기관·보험사 교육, 회사마다 다른 고민에 핏을 맞춰 설계합니다. 강의, 힐링 워크숍, 외부 연수 코스, 원데이 클래스까지.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
 @font-face { font-family: 'Pretendard Local'; font-weight: 400; src: url(../../cardnews/fonts/Pretendard-Regular.woff2) format('woff2'); }
@@ -12,14 +12,8 @@
 @font-face { font-family: 'Pretendard Local'; font-weight: 700; src: url(../../cardnews/fonts/Pretendard-Bold.woff2) format('woff2'); }
 @font-face { font-family: 'Pretendard Local'; font-weight: 800; src: url(../../cardnews/fonts/Pretendard-ExtraBold.woff2) format('woff2'); }
 :root {
-  --paper: #FAF8F3;
-  --ink: #15201E;
-  --sub: #5A6562;
-  --line: #E3E0D7;
-  --brand: #0F4C45;
-  --brand-2: #16685E;
-  --accent: #E8963A;
-  --card: #FFFFFF;
+  --paper: #FAF8F3; --ink: #15201E; --sub: #5A6562; --line: #E3E0D7;
+  --brand: #0F4C45; --brand-2: #16685E; --accent: #E8963A; --mint: #E2EEEC;
   --radius: 18px;
 }
 * { box-sizing: border-box; }
@@ -27,121 +21,121 @@ html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'Pretendard Local', Pretendard, 'Apple SD Gothic Neo', sans-serif; line-height: 1.6; word-break: keep-all; -webkit-font-smoothing: antialiased; }
 a { color: inherit; text-decoration: none; }
 .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
-.btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 22px; border-radius: 999px; font-weight: 700; font-size: 15px; transition: transform .15s, background .15s; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 22px; border-radius: 999px; font-weight: 700; font-size: 15px; transition: transform .15s, background .15s; border: 0; cursor: pointer; font-family: inherit; }
 .btn:hover { transform: translateY(-1px); }
 .btn.primary { background: var(--brand); color: #fff; }
 .btn.primary:hover { background: var(--brand-2); }
-.btn.ghost { border: 1.5px solid var(--ink); }
+.btn.ghost { border: 1.5px solid currentColor; background: transparent; }
+.btn.accent { background: var(--accent); color: #fff; }
 .eyebrow { color: var(--accent); font-weight: 700; font-size: 14px; letter-spacing: .06em; }
 section { padding: 96px 0; }
-h2.sec { font-size: clamp(28px, 4vw, 40px); line-height: 1.25; letter-spacing: -0.03em; margin: 10px 0 14px; font-weight: 800; }
-p.lead { color: var(--sub); font-size: 17px; max-width: 620px; margin: 0; }
+h2.sec { font-size: clamp(28px, 4vw, 42px); line-height: 1.25; letter-spacing: -0.03em; margin: 10px 0 14px; font-weight: 800; }
+p.lead { color: var(--sub); font-size: 17px; max-width: 640px; margin: 0; }
+
+/* ── opening ── */
+.opening { position: fixed; inset: 0; z-index: 50; background: var(--brand); display: grid; place-items: center; animation: openOut .7s ease 2.1s forwards; }
+.opening .mark { display: flex; align-items: center; gap: 14px; color: #fff; font-weight: 800; font-size: clamp(30px, 6vw, 52px); letter-spacing: -0.03em; }
+.opening .piece { width: 46px; height: 46px; position: relative; }
+.opening .piece span { position: absolute; inset: 0; border-radius: 12px; background: #fff; }
+.opening .piece i { position: absolute; width: 20px; height: 20px; border-radius: 50%; background: var(--accent); right: -8px; top: -8px; animation: snap .7s cubic-bezier(.3,1.6,.5,1) .5s both; }
+.opening .word { opacity: 0; animation: up .6s ease .9s forwards; }
+.opening .word small { display: block; font-size: .36em; font-weight: 600; opacity: .7; letter-spacing: .3em; }
+@keyframes snap { from { transform: translate(60px,-60px) scale(.4); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes openOut { to { opacity: 0; visibility: hidden; } }
+@media (prefers-reduced-motion: reduce) { .opening { display: none; } }
 
 /* nav */
-header { position: sticky; top: 0; z-index: 10; background: rgba(250,248,243,.88); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+header { position: sticky; top: 0; z-index: 10; background: rgba(250,248,243,.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
 .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
 .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 22px; letter-spacing: -0.03em; color: var(--brand); }
 .logo i { width: 24px; height: 24px; border-radius: 7px; background: var(--brand); position: relative; }
 .logo i::after { content: ''; position: absolute; right: -4px; top: -4px; width: 11px; height: 11px; border-radius: 50%; background: var(--accent); border: 2px solid var(--paper); }
+.logo small { font-size: 11px; font-weight: 700; letter-spacing: .18em; color: var(--sub); margin-left: 2px; }
 .nav ul { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; font-size: 15px; font-weight: 600; color: var(--sub); }
 .nav ul a:hover { color: var(--ink); }
 .nav .btn { padding: 10px 18px; font-size: 14px; }
 
 /* hero */
-.hero { padding: 72px 0 88px; }
-.hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
-.hero h1 { font-size: clamp(38px, 5.6vw, 64px); line-height: 1.15; letter-spacing: -0.04em; margin: 14px 0 22px; font-weight: 800; }
-.hero h1 em { font-style: normal; color: var(--brand); position: relative; }
-.hero h1 em::after { content: ''; position: absolute; left: 0; right: 0; bottom: 4px; height: 12px; background: var(--accent); opacity: .35; z-index: -1; border-radius: 4px; }
+.hero { padding: 80px 0 96px; }
+.hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; }
+.hero h1 { font-size: clamp(42px, 6.4vw, 76px); line-height: 1.1; letter-spacing: -0.045em; margin: 14px 0 22px; font-weight: 800; }
+.hero h1 em { font-style: normal; color: var(--brand); position: relative; white-space: nowrap; }
+.hero h1 em::after { content: ''; position: absolute; left: -2px; right: -2px; bottom: 6px; height: 14px; background: var(--accent); opacity: .35; z-index: -1; border-radius: 4px; transform-origin: left; animation: grow .8s ease 2.6s both; }
+@keyframes grow { from { transform: scaleX(0); } }
 .hero .cta { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
-.portrait { position: relative; aspect-ratio: 4/5; border-radius: 28px; background: linear-gradient(160deg, #1B5D55, #0B3833); overflow: hidden; }
-.portrait svg { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 78%; opacity: .9; }
-.portrait .ph { position: absolute; top: 18px; left: 18px; font-size: 12px; color: rgba(255,255,255,.7); border: 1px dashed rgba(255,255,255,.45); padding: 4px 10px; border-radius: 99px; }
-.portrait .name { position: absolute; left: 18px; right: 18px; bottom: 18px; background: rgba(255,255,255,.96); border-radius: 16px; padding: 16px 18px; display: flex; justify-content: space-between; align-items: center; }
-.portrait .name b { font-size: 18px; display: block; }
-.portrait .name small { color: var(--sub); font-size: 13px; }
-.portrait .name span { background: var(--accent); color: #fff; font-weight: 700; font-size: 12px; padding: 6px 10px; border-radius: 99px; white-space: nowrap; }
-.stats { display: flex; gap: 36px; margin-top: 40px; padding-top: 26px; border-top: 1px solid var(--line); }
-.stats b { display: block; font-size: 28px; font-weight: 800; letter-spacing: -0.02em; }
-.stats small { color: var(--sub); font-size: 14px; }
+.who { display: flex; gap: 8px; margin-top: 36px; flex-wrap: wrap; align-items: center; color: var(--sub); font-size: 14px; }
+.who b { font-weight: 600; }
+.who span { background: #fff; border: 1px solid var(--line); border-radius: 99px; padding: 6px 14px; color: var(--ink); font-weight: 600; }
 
-/* clients */
-.clients { padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #fff; }
-.clients .wrap { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; justify-content: space-between; }
-.clients p { margin: 0; font-size: 14px; color: var(--sub); font-weight: 600; }
-.clients .logos { display: flex; gap: 14px; flex-wrap: wrap; }
-.clients .logos span { width: 110px; height: 36px; border-radius: 8px; background: #EFEDE6; display: grid; place-items: center; font-size: 12px; color: #9A9890; font-weight: 600; }
+/* fit card */
+.fit { background: #fff; border: 1px solid var(--line); border-radius: 28px; padding: 26px; box-shadow: 0 20px 50px -24px rgba(15,76,69,.35); }
+.fit .row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--sub); font-weight: 600; }
+.fit .req { margin: 14px 0 18px; display: grid; gap: 8px; }
+.fit .req div { background: var(--paper); border-radius: 12px; padding: 11px 14px; font-size: 15px; display: flex; gap: 10px; opacity: 0; animation: up .5s ease forwards; }
+.fit .req div:nth-child(1) { animation-delay: 2.5s; } .fit .req div:nth-child(2) { animation-delay: 2.75s; } .fit .req div:nth-child(3) { animation-delay: 3s; } .fit .req div:nth-child(4) { animation-delay: 3.25s; }
+.fit .req b { color: var(--sub); font-weight: 600; min-width: 44px; }
+.fit .out { background: var(--brand); color: #fff; border-radius: 16px; padding: 16px 18px; opacity: 0; animation: up .6s ease 3.7s forwards; }
+.fit .out small { color: #FFC98A; font-weight: 700; font-size: 12px; letter-spacing: .06em; }
+.fit .out p { margin: 6px 0 0; font-weight: 700; font-size: 16px; line-height: 1.5; }
+.fit .tag { display: inline-flex; gap: 6px; align-items: center; background: #FDF1E3; color: #B86A1C; padding: 4px 10px; border-radius: 99px; font-size: 12px; font-weight: 700; }
 
-/* pain */
-.pain .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; }
-.pain .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }
-.pain .card .q { font-size: 30px; color: var(--accent); font-weight: 800; line-height: 1; }
-.pain .card h3 { font-size: 19px; margin: 12px 0 8px; letter-spacing: -0.02em; }
-.pain .card p { margin: 0; color: var(--sub); font-size: 15px; }
-.answer { margin-top: 26px; background: var(--brand); color: #fff; border-radius: var(--radius); padding: 26px 30px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
-.answer p { margin: 0; font-size: 19px; font-weight: 700; letter-spacing: -0.02em; }
-.answer p span { color: #FFC98A; }
+/* why */
+.why { background: #fff; }
+.why .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 44px; }
+.why .card { border-radius: var(--radius); padding: 30px 26px; background: var(--paper); border: 1px solid var(--line); }
+.why .ic { width: 46px; height: 46px; border-radius: 14px; background: var(--mint); display: grid; place-items: center; color: var(--brand); font-weight: 800; font-size: 18px; }
+.why h3 { font-size: 21px; margin: 20px 0 8px; letter-spacing: -0.02em; line-height: 1.35; }
+.why p { margin: 0; color: var(--sub); font-size: 15px; }
+.contrast { margin-top: 26px; display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
+.contrast div { padding: 22px 26px; font-size: 16px; }
+.contrast .no { background: #F1EFEA; color: var(--sub); }
+.contrast .yes { background: var(--brand); color: #fff; font-weight: 700; }
+.contrast small { display: block; font-size: 12px; font-weight: 700; letter-spacing: .08em; margin-bottom: 4px; opacity: .7; }
 
 /* services */
-.services { background: #fff; }
 .svc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 44px; }
-.svc .card { border-radius: var(--radius); padding: 28px 24px; background: var(--paper); border: 1px solid var(--line); display: flex; flex-direction: column; }
-.svc .num { font-size: 13px; font-weight: 700; color: var(--brand); background: #E2EEEC; width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; }
-.svc h3 { font-size: 20px; margin: 18px 0 8px; letter-spacing: -0.02em; }
+.svc .card { border-radius: var(--radius); background: #fff; border: 1px solid var(--line); overflow: hidden; display: flex; flex-direction: column; }
+.svc .img { aspect-ratio: 4/3; display: grid; place-items: center; color: rgba(255,255,255,.9); font-size: 12px; font-weight: 600; position: relative; }
+.svc .img::after { content: '현장 사진 자리'; position: absolute; bottom: 10px; right: 12px; border: 1px dashed rgba(255,255,255,.6); padding: 2px 8px; border-radius: 99px; font-size: 11px; }
+.svc .i1 { background: linear-gradient(135deg, #0F4C45, #2A7A6E); } .svc .i2 { background: linear-gradient(135deg, #C9762A, #E8A95E); }
+.svc .i3 { background: linear-gradient(135deg, #2E5E7A, #5D93AE); } .svc .i4 { background: linear-gradient(135deg, #5B4A7A, #8E7BB0); }
+.svc .img b { font-size: 40px; }
+.svc .body { padding: 22px 22px 26px; }
+.svc h3 { font-size: 19px; margin: 0 0 6px; letter-spacing: -0.02em; }
 .svc p { margin: 0; color: var(--sub); font-size: 15px; }
-.svc ul { margin: 16px 0 0; padding: 14px 0 0; border-top: 1px solid var(--line); list-style: none; font-size: 14px; color: var(--ink); }
-.svc li { padding: 3px 0; }
-.svc li::before { content: '✓'; color: var(--accent); font-weight: 800; margin-right: 8px; }
 
 /* process */
-.steps { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; margin-top: 48px; position: relative; }
-.steps::before { content: ''; position: absolute; top: 23px; left: 8%; right: 8%; height: 2px; background: repeating-linear-gradient(90deg, var(--brand) 0 8px, transparent 8px 14px); opacity: .35; }
-.step { text-align: center; padding: 0 10px; position: relative; }
-.step .dot { width: 48px; height: 48px; border-radius: 50%; background: var(--paper); border: 2px solid var(--brand); display: grid; place-items: center; margin: 0 auto 16px; font-weight: 800; color: var(--brand); }
-.step:last-child .dot { background: var(--brand); color: #fff; }
-.step h4 { margin: 0 0 6px; font-size: 17px; }
-.step p { margin: 0; color: var(--sub); font-size: 14px; }
+.process { background: #12201E; color: #fff; }
+.process .lead { color: rgba(255,255,255,.7); }
+.process .eyebrow { color: #FFC98A; }
+.steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 48px; counter-reset: s; }
+.step { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius); padding: 24px 20px; counter-increment: s; }
+.step::before { content: '0' counter(s); display: block; color: #FFC98A; font-weight: 800; font-size: 14px; margin-bottom: 14px; }
+.step h4 { margin: 0 0 6px; font-size: 18px; }
+.step p { margin: 0; color: rgba(255,255,255,.65); font-size: 14px; }
+.safe { margin-top: 22px; display: flex; gap: 14px; align-items: center; background: rgba(232,150,58,.12); border: 1px solid rgba(232,150,58,.3); border-radius: var(--radius); padding: 18px 22px; font-size: 15px; }
+.safe b { color: #FFC98A; }
 
-/* programs */
-.programs { background: #12201E; color: #fff; }
-.programs .lead { color: rgba(255,255,255,.7); }
-.programs .eyebrow { color: #FFC98A; }
-.prog { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 44px; }
-.prog .card { border-radius: var(--radius); padding: 26px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); }
-.prog .card:hover { background: rgba(255,255,255,.08); }
-.prog .chip { display: inline-block; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 99px; background: rgba(232,150,58,.18); color: #FFC98A; }
-.prog h3 { font-size: 20px; margin: 14px 0 8px; letter-spacing: -0.02em; }
-.prog p { margin: 0; color: rgba(255,255,255,.68); font-size: 15px; }
-.prog .meta { margin-top: 18px; font-size: 13px; color: rgba(255,255,255,.5); }
-
-/* about */
-.about .wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: 64px; align-items: center; }
-.about .photo { aspect-ratio: 1; border-radius: 28px; background: #E2EEEC; position: relative; overflow: hidden; }
-.about .photo svg { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 70%; }
-.about .photo .ph { position: absolute; top: 16px; left: 16px; font-size: 12px; color: var(--brand); border: 1px dashed var(--brand); padding: 4px 10px; border-radius: 99px; opacity: .7; }
-.about blockquote { margin: 18px 0 22px; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.45; font-weight: 700; letter-spacing: -0.03em; }
-.about blockquote span { color: var(--brand); }
-.about .career { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 15px; color: var(--sub); }
-.about .career li::before { content: '—'; color: var(--accent); margin-right: 8px; }
-.about .sig { margin-top: 24px; font-weight: 700; }
-
-/* reviews */
-.reviews { background: #fff; }
-.rv { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; }
-.rv .card { border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; background: var(--paper); }
-.rv .stars { color: var(--accent); letter-spacing: 2px; }
-.rv p { font-size: 16px; margin: 12px 0 18px; }
-.rv small { color: var(--sub); }
+/* cases */
+.cases .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; }
+.case { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; display: flex; flex-direction: column; gap: 14px; }
+.case .who2 { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; color: var(--brand); }
+.case .who2 span { color: var(--sub); font-weight: 600; }
+.case .q { font-size: 17px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.45; }
+.case .q::before { content: '고민 '; color: var(--accent); font-size: 13px; }
+.case .a { font-size: 15px; color: var(--sub); border-top: 1px dashed var(--line); padding-top: 14px; }
+.case .a::before { content: '플랜듀의 설계 '; color: var(--brand); font-weight: 700; font-size: 13px; }
+.note-ex { font-size: 13px; color: var(--sub); margin-top: 14px; }
 
 /* column */
+.column { background: #fff; }
 .col-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; }
 .cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
-.cols a { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: block; transition: transform .15s; }
+.cols a { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: block; transition: transform .15s; }
 .cols a:hover { transform: translateY(-3px); }
-.cols .thumb { aspect-ratio: 16/9; display: grid; place-items: center; font-weight: 800; font-size: 22px; color: rgba(255,255,255,.95); letter-spacing: -0.02em; padding: 20px; text-align: center; }
-.cols .t1 { background: linear-gradient(135deg, #0F4C45, #2A7A6E); }
-.cols .t2 { background: linear-gradient(135deg, #C9762A, #E8963A); }
-.cols .t3 { background: linear-gradient(135deg, #22302E, #45524F); }
+.cols .thumb { aspect-ratio: 16/9; display: grid; place-items: center; font-weight: 800; font-size: 21px; color: #fff; padding: 20px; text-align: center; letter-spacing: -0.02em; }
+.cols .t1 { background: linear-gradient(135deg, #0F4C45, #2A7A6E); } .cols .t2 { background: linear-gradient(135deg, #C9762A, #E8963A); } .cols .t3 { background: linear-gradient(135deg, #22302E, #45524F); }
 .cols .body { padding: 20px 22px 24px; }
 .cols .body small { color: var(--accent); font-weight: 700; font-size: 13px; }
 .cols .body h3 { margin: 6px 0 0; font-size: 18px; line-height: 1.4; letter-spacing: -0.02em; }
@@ -155,56 +149,70 @@ header { position: sticky; top: 0; z-index: 10; background: rgba(250,248,243,.88
 .contact .info div { display: flex; gap: 14px; }
 .contact .info b { width: 70px; color: rgba(255,255,255,.6); font-weight: 500; }
 form { background: #fff; color: var(--ink); border-radius: 24px; padding: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-form label { font-size: 13px; font-weight: 600; color: var(--sub); display: grid; gap: 6px; }
+form .seg { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+form .seg label { display: block; }
+form .seg input { position: absolute; opacity: 0; }
+form .seg span { display: block; text-align: center; padding: 12px; border-radius: 12px; border: 1.5px solid var(--line); font-weight: 700; font-size: 15px; cursor: pointer; color: var(--sub); }
+form .seg input:checked + span { border-color: var(--brand); color: var(--brand); background: var(--mint); }
+form .seg input:focus-visible + span { outline: 2px solid var(--accent); }
+form label.f { font-size: 13px; font-weight: 600; color: var(--sub); display: grid; gap: 6px; }
 form .full { grid-column: 1 / -1; }
 input, select, textarea { font: inherit; font-size: 15px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); color: var(--ink); width: 100%; }
 input:focus, select:focus, textarea:focus { outline: 2px solid var(--brand); outline-offset: -1px; }
 textarea { min-height: 110px; resize: vertical; }
-form .btn { justify-content: center; border: 0; cursor: pointer; font-family: inherit; }
-form .agree { font-size: 13px; color: var(--sub); display: flex; gap: 8px; align-items: center; font-weight: 500; }
+form .agree { font-size: 13px; color: var(--sub); display: flex; gap: 8px; align-items: center; }
 form .agree input { width: auto; }
 
 footer { background: #0D1716; color: rgba(255,255,255,.55); font-size: 13px; padding: 40px 0; }
 footer .wrap { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
 footer .logo { color: #fff; font-size: 18px; }
 footer .logo i::after { border-color: #0D1716; }
+footer .logo small { color: rgba(255,255,255,.5); }
 
-/* responsive */
+/* mobile bottom bar */
+.mbar { display: none; }
+
 @media (max-width: 960px) {
   .nav ul { display: none; }
-  .hero .wrap, .about .wrap, .contact .wrap { grid-template-columns: 1fr; gap: 40px; }
-  .portrait { max-width: 420px; }
+  .hero .wrap, .contact .wrap { grid-template-columns: 1fr; gap: 40px; }
+  .why .grid, .cases .grid, .cols { grid-template-columns: 1fr; }
   .svc { grid-template-columns: 1fr 1fr; }
-  .pain .grid, .prog, .rv, .cols { grid-template-columns: 1fr; }
-  .steps { grid-template-columns: 1fr 1fr 1fr; row-gap: 32px; }
-  .steps::before { display: none; }
+  .steps { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 560px) {
   section { padding: 68px 0; }
   .wrap { padding: 0 16px; }
-  .svc { grid-template-columns: 1fr; }
-  .steps { grid-template-columns: 1fr 1fr; }
-  .stats { gap: 22px; }
-  .stats b { font-size: 22px; }
+  .hero { padding: 48px 0 72px; }
+  .contrast { grid-template-columns: 1fr; }
+  .svc { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .svc .body { padding: 16px; } .svc h3 { font-size: 16px; } .svc p { font-size: 13px; }
+  .steps { grid-template-columns: 1fr; }
   form { grid-template-columns: 1fr; padding: 22px; }
-  .about .career { grid-template-columns: 1fr; }
   .nav .btn { display: none; }
+  footer .wrap > div:last-child { text-align: left !important; }
+  body { padding-bottom: 76px; }
+  .mbar { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: rgba(250,248,243,.95); backdrop-filter: blur(8px); border-top: 1px solid var(--line); }
+  .mbar .btn { padding: 13px 10px; font-size: 14px; }
 }
 </style>
 </head>
 <body>
 
+<div class="opening" aria-hidden="true">
+  <div class="mark"><div class="piece"><span></span><i></i></div><div class="word">플랜듀<small>PLANDUE</small></div></div>
+</div>
+
 <header>
   <div class="wrap nav">
-    <a href="#" class="logo"><i></i>플랜듀</a>
+    <a href="#" class="logo"><i></i>플랜듀<small>PLANDUE</small></a>
     <ul>
-      <li><a href="#services">서비스</a></li>
+      <li><a href="#why">왜 플랜듀</a></li>
+      <li><a href="#services">하는 일</a></li>
       <li><a href="#process">진행 방식</a></li>
-      <li><a href="#programs">교육 프로그램</a></li>
-      <li><a href="#about">대표 소개</a></li>
+      <li><a href="#cases">지난 교육</a></li>
       <li><a href="#column">칼럼</a></li>
     </ul>
-    <a href="#contact" class="btn primary">교육 문의하기</a>
+    <a href="#contact" class="btn primary">섭외하기</a>
   </div>
 </header>
 
@@ -212,152 +220,105 @@ footer .logo i::after { border-color: #0D1716; }
 <section class="hero">
   <div class="wrap">
     <div>
-      <div class="eyebrow">기업교육 컨설팅 · 플랜듀</div>
-      <h1>교육은 강사 섭외가 아니라<br><em>설계</em>입니다.</h1>
-      <p class="lead">2박 3일 연수부터 AI 업무혁신 교육까지. 교육의 목적을 먼저 묻고, 거기에 맞는 커리큘럼과 강사를 플랜듀 대표가 직접 설계합니다.</p>
+      <div class="eyebrow">맞춤형 기업교육 · 플랜듀</div>
+      <h1>교육에 딱,<br><em>핏</em>을 맞추다.</h1>
+      <p class="lead">회사마다 고민이 다르니 교육도 달라야 합니다. 여기저기 헤매지 마세요. 플랜듀가 귀사에 꼭 맞는 프로그램을 빠르게 찾아 설계합니다.</p>
       <div class="cta">
-        <a href="#contact" class="btn primary">무료 교육 상담 신청 →</a>
-        <a href="#programs" class="btn ghost">교육 프로그램 보기</a>
+        <a href="#contact" class="btn primary">교육 프로그램 문의하기 →</a>
+        <a href="#cases" class="btn ghost">지난 교육 프로그램 보기</a>
       </div>
-      <div class="stats">
-        <div><b>○○○회+</b><small>누적 기업교육</small></div>
-        <div><b>○○○명</b><small>협업 강사 풀</small></div>
-        <div><b>○○%</b><small>재의뢰율</small></div>
-      </div>
+      <div class="who"><b>함께하는 곳</b><span>기업</span><span>공공기관</span><span>보험사</span></div>
     </div>
-    <div class="portrait" role="img" aria-label="대표 프로필 사진 자리">
-      <span class="ph">대표 사진 자리</span>
-      <svg viewBox="0 0 200 220" fill="none" aria-hidden="true"><circle cx="100" cy="70" r="42" fill="#E8EFEE"/><path d="M20 220c0-52 36-86 80-86s80 34 80 86z" fill="#E8EFEE"/></svg>
-      <div class="name">
-        <div><b>○○○ 대표</b><small>플랜듀 · 기업교육 컨설턴트</small></div>
-        <span>직접 설계</span>
+    <div class="fit" aria-label="맞춤 설계 예시">
+      <div class="row"><span>교육 요청서</span><span class="tag">● 맞춤 설계 중</span></div>
+      <div class="req">
+        <div><b>대상</b>영업조직 40명</div>
+        <div><b>목적</b>지친 팀 분위기 회복</div>
+        <div><b>일정</b>1박 2일 · 지방 외부 연수</div>
+        <div><b>조건</b>강의 + 쉼 + 식사 모두</div>
+      </div>
+      <div class="out">
+        <small>플랜듀의 핏</small>
+        <p>힐링 워크숍 패키지 — 맞춤 강사 2인, 체험 클래스, 대관·식사까지 한 번에</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CLIENTS -->
-<div class="clients">
+<!-- WHY -->
+<section class="why" id="why">
   <div class="wrap">
-    <p>플랜듀와 함께한 기업·기관</p>
-    <div class="logos"><span>고객사 로고</span><span>고객사 로고</span><span>고객사 로고</span><span>고객사 로고</span><span>고객사 로고</span></div>
-  </div>
-</div>
-
-<!-- PAIN -->
-<section class="pain">
-  <div class="wrap">
-    <div class="eyebrow">교육 담당자님께</div>
-    <h2 class="sec">이런 고민, 혼자 하고 계시죠?</h2>
+    <div class="eyebrow">왜 플랜듀인가</div>
+    <h2 class="sec">강사를 소개하는 곳이 아니라,<br>귀사에 맞추는 곳입니다.</h2>
     <div class="grid">
-      <div class="card"><div class="q">“</div><h3>연수는 잡혔는데 무엇으로 채울지 막막해요</h3><p>2박 3일 일정, 예산, 인원은 정해졌는데 프로그램 구성부터 손이 안 갑니다.</p></div>
-      <div class="card"><div class="q">“</div><h3>강사는 많은데 누가 우리 회사에 맞는지 몰라요</h3><p>프로필만 보고 섭외했다가 현장 분위기와 맞지 않았던 경험, 한 번쯤 있으시죠.</p></div>
-      <div class="card"><div class="q">“</div><h3>AI 교육을 해야 한다는데 어디서부터 할지</h3><p>요즘 다들 AI 교육을 한다는데, 우리 직원 수준에 맞는 과정이 무엇인지 판단이 어렵습니다.</p></div>
+      <div class="card"><div class="ic">핏</div><h3>100% 맞춤형 설계</h3><p>같은 교육을 찍어 내지 않습니다. 대상·목적·분위기를 듣고, 그 회사에만 맞는 구성으로 다시 짭니다.</p></div>
+      <div class="card"><div class="ic">눈</div><h3>수천 번의 강의를 직접 본 눈</h3><p>커리큘럼만 봐도, 강의 5분만 봐도 압니다. 귀사 현장에서 통할 강사와 프로그램을 고릅니다.</p></div>
+      <div class="card"><div class="ic">✓</div><h3>사고 없는 운영</h3><p>장소·대관·식사부터 강사 일정 안내까지 꼼꼼히 챙깁니다. 좋은 교육은 애초에 계획을 잘 짜는 데서 시작합니다.</p></div>
     </div>
-    <div class="answer">
-      <p>플랜듀는 강사를 <span>연결</span>하는 곳이 아니라, 교육을 <span>설계</span>하는 곳입니다.</p>
-      <a href="#services" class="btn" style="background:#fff;color:var(--brand)">어떻게 다른가요?</a>
+    <div class="contrast">
+      <div class="no"><small>흔한 방식</small>강사 프로필을 보내 드리고, 고르시면 연결해 드립니다.</div>
+      <div class="yes"><small>플랜듀 방식</small>목적을 먼저 묻고, 프로그램·강사·운영까지 한 번에 맞춰 드립니다.</div>
     </div>
   </div>
 </section>
 
 <!-- SERVICES -->
-<section class="services" id="services">
+<section id="services">
   <div class="wrap">
-    <div class="eyebrow">서비스</div>
-    <h2 class="sec">교육의 처음부터 끝까지, 한 번에</h2>
-    <p class="lead">담당자님은 목적만 말씀해 주세요. 기획·강사·운영·결과 보고까지 플랜듀가 책임집니다.</p>
+    <div class="eyebrow">하는 일</div>
+    <h2 class="sec">교육이 필요한 모든 순간에</h2>
+    <p class="lead">특강 한 번부터 외부 연수 전체 코스까지, 필요한 만큼 맞춰 드립니다.</p>
     <div class="svc">
-      <div class="card"><div class="num">01</div><h3>교육 컨설팅</h3><p>조직의 현재 과제와 교육 목적을 진단하고 방향을 잡습니다.</p><ul><li>담당자 인터뷰</li><li>교육 니즈 진단</li><li>예산·일정 설계</li></ul></div>
-      <div class="card"><div class="num">02</div><h3>커리큘럼 설계</h3><p>목적에서 거꾸로 짠 시간표. 1일 특강부터 2박 3일 연수까지.</p><ul><li>모듈별 학습 목표</li><li>워크숍·실습 구성</li><li>사전·사후 과제</li></ul></div>
-      <div class="card"><div class="num">03</div><h3>강사 매칭</h3><p>검증된 강사 풀에서 주제와 조직 분위기에 맞는 강사를 고릅니다.</p><ul><li>분야별 전문 강사</li><li>사전 미팅 조율</li><li>강의안 사전 검토</li></ul></div>
-      <div class="card"><div class="num">04</div><h3>운영 · 결과 보고</h3><p>현장 운영부터 만족도 조사, 결과 리포트까지 마무리합니다.</p><ul><li>현장 운영 지원</li><li>만족도 설문</li><li>결과 보고서</li></ul></div>
+      <div class="card"><div class="img i1"><b>01</b></div><div class="body"><h3>기업 교육 · 특강</h3><p>리더십, 소통, AI 활용 등 주제와 대상에 맞춘 강의</p></div></div>
+      <div class="card"><div class="img i2"><b>02</b></div><div class="body"><h3>힐링 워크숍</h3><p>외부로 떠나는 쉼과 배움. 대관·식사까지 함께</p></div></div>
+      <div class="card"><div class="img i3"><b>03</b></div><div class="body"><h3>외부 연수 · 필드 트립</h3><p>지역과 목적에 맞춘 연수 코스와 현장 프로그램 설계</p></div></div>
+      <div class="card"><div class="img i4"><b>04</b></div><div class="body"><h3>원데이 클래스</h3><p>팀이 함께 만들고 체험하는 하루짜리 프로그램</p></div></div>
     </div>
   </div>
 </section>
 
 <!-- PROCESS -->
-<section id="process">
+<section class="process" id="process">
   <div class="wrap">
     <div class="eyebrow">진행 방식</div>
-    <h2 class="sec">문의부터 결과 보고까지 6단계</h2>
+    <h2 class="sec">문의 한 번이면, 나머지는 플랜듀가</h2>
+    <p class="lead">담당자님은 목적만 말씀해 주세요. 섭외부터 마무리까지 플랜듀가 챙깁니다.</p>
     <div class="steps">
-      <div class="step"><div class="dot">1</div><h4>상담 신청</h4><p>홈페이지·전화로 간단히</p></div>
-      <div class="step"><div class="dot">2</div><h4>니즈 분석</h4><p>목적·대상·예산 확인</p></div>
-      <div class="step"><div class="dot">3</div><h4>커리큘럼 제안</h4><p>맞춤 제안서 전달</p></div>
-      <div class="step"><div class="dot">4</div><h4>강사 매칭</h4><p>사전 미팅까지 조율</p></div>
-      <div class="step"><div class="dot">5</div><h4>교육 운영</h4><p>현장 진행 지원</p></div>
-      <div class="step"><div class="dot">6</div><h4>결과 보고</h4><p>만족도·개선안 리포트</p></div>
+      <div class="step"><h4>문의</h4><p>대상·인원·일정·예산을 간단히 남겨 주세요</p></div>
+      <div class="step"><h4>핏 진단</h4><p>교육 목적과 조직 분위기를 함께 정리합니다</p></div>
+      <div class="step"><h4>맞춤 제안</h4><p>프로그램 구성과 강사를 제안드립니다</p></div>
+      <div class="step"><h4>운영</h4><p>장소·대관·식사·강사 일정까지 현장을 챙깁니다</p></div>
+      <div class="step"><h4>마무리</h4><p>결과 공유와 정산까지 깔끔하게 끝냅니다</p></div>
     </div>
+    <div class="safe"><b>사고 제로</b>강사님께는 전날과 당일 아침에 일정·장소·길 안내가 자동으로 나갑니다. 날짜나 장소 착오가 생기지 않습니다.</div>
   </div>
 </section>
 
-<!-- PROGRAMS -->
-<section class="programs" id="programs">
+<!-- CASES -->
+<section class="cases" id="cases">
   <div class="wrap">
-    <div class="eyebrow">대표 교육 프로그램</div>
-    <h2 class="sec">많이 찾으시는 과정</h2>
-    <p class="lead">아래는 예시입니다. 모든 과정은 조직 상황에 맞춰 다시 설계합니다.</p>
-    <div class="prog">
-      <div class="card"><span class="chip">요즘 가장 많이 찾는</span><h3>AI 업무혁신 실무 과정</h3><p>직무별 실제 업무에 AI를 바로 붙여 보는 실습 중심 교육.</p><div class="meta">4H 특강 · 1일 · 2일 과정</div></div>
-      <div class="card"><span class="chip">연수</span><h3>2박 3일 조직 활성화 워크숍</h3><p>팀 빌딩, 비전 공유, 소통 워크숍을 한 흐름으로 묶은 연수 패키지.</p><div class="meta">2박 3일 · 30~150명</div></div>
-      <div class="card"><span class="chip">리더십</span><h3>중간관리자 리더십</h3><p>코칭 대화, 피드백, 세대 간 소통까지 현장형 리더십.</p><div class="meta">1일 · 2일 과정</div></div>
-      <div class="card"><span class="chip">신입</span><h3>신입사원 온보딩</h3><p>회사 이해, 일하는 방식, 비즈니스 매너를 빠르게 정착시키는 과정.</p><div class="meta">1일 · 2일 과정</div></div>
-      <div class="card"><span class="chip">조직문화</span><h3>조직문화 · 소통 워크숍</h3><p>진단 결과를 바탕으로 우리 팀의 일하는 약속을 함께 만듭니다.</p><div class="meta">4H · 1일</div></div>
-      <div class="card"><span class="chip">고객</span><h3>CS · 커뮤니케이션</h3><p>고객 응대와 협업 커뮤니케이션을 롤플레이로 익히는 과정.</p><div class="meta">4H · 1일</div></div>
+    <div class="eyebrow">지난 교육 프로그램</div>
+    <h2 class="sec">이런 고민에, 이렇게 맞췄습니다</h2>
+    <div class="grid">
+      <div class="case"><div class="who2">대기업 A사<span>영업조직 · 1박 2일</span></div><div class="q">성과 압박에 지친 팀, 그냥 쉬게 하기엔 아쉬워요.</div><div class="a">오전엔 회복탄력성 강의, 오후엔 체험 클래스, 저녁엔 팀 대화. 대관과 식사까지 한 번에 운영했습니다.</div></div>
+      <div class="case"><div class="who2">공공기관 B<span>전 직원 · 특강</span></div><div class="q">AI 교육은 해야 하는데, 직원 수준이 제각각이에요.</div><div class="a">사전 설문으로 수준을 나눠 입문·실무 두 반으로 구성했습니다. 반마다 다른 강사를 배치했습니다.</div></div>
+      <div class="case"><div class="who2">보험사 C<span>지점장 · 리더십</span></div><div class="q">지난번 교육은 좋았다는데, 현장이 바뀌지 않았어요.</div><div class="a">강의 대신 실제 사례로 하는 워크숍으로 바꿨습니다. 교육 후 실천 과제까지 설계했습니다.</div></div>
     </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="wrap">
-    <div class="photo" role="img" aria-label="대표 사진 자리">
-      <span class="ph">대표 사진 자리</span>
-      <svg viewBox="0 0 200 220" fill="none" aria-hidden="true"><circle cx="100" cy="70" r="42" fill="#0F4C45" opacity=".25"/><path d="M20 220c0-52 36-86 80-86s80 34 80 86z" fill="#0F4C45" opacity=".25"/></svg>
-    </div>
-    <div>
-      <div class="eyebrow">대표 소개</div>
-      <blockquote>“제 이름과 얼굴을 걸고 합니다.<br>그래서 <span>끝까지 책임</span>집니다.”</blockquote>
-      <p class="lead">교육은 하루로 끝나지만, 담당자님의 평가는 그 뒤에도 남습니다. 플랜듀는 소개하고 빠지는 곳이 아니라, 교육이 끝난 뒤 결과까지 함께 책임지는 파트너가 되겠습니다.</p>
-      <ul class="career" style="margin-top:24px">
-        <li>(약력) 기업교육 컨설팅 ○○년</li>
-        <li>(약력) ○○그룹 연수 기획</li>
-        <li>(약력) 공공기관 교육 ○○회</li>
-        <li>(약력) 강사 양성 과정 운영</li>
-      </ul>
-      <div class="sig">플랜듀 대표 ○○○</div>
-    </div>
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section class="reviews">
-  <div class="wrap">
-    <div class="eyebrow">고객 후기</div>
-    <h2 class="sec">함께한 담당자님들의 이야기</h2>
-    <div class="rv">
-      <div class="card"><div class="stars">★★★★★</div><p>(후기 자리) 연수 목적부터 같이 고민해 주셔서 기획서를 그대로 윗선에 올릴 수 있었습니다.</p><small>○○기업 인사팀 담당자</small></div>
-      <div class="card"><div class="stars">★★★★★</div><p>(후기 자리) 강사님이 우리 회사 분위기를 미리 알고 오셔서 첫 시간부터 반응이 달랐어요.</p><small>○○공사 교육 담당자</small></div>
-      <div class="card"><div class="stars">★★★★★</div><p>(후기 자리) AI 교육을 처음 했는데 직원들이 다음 날 바로 업무에 써먹고 있습니다.</p><small>○○그룹 HRD 담당자</small></div>
-    </div>
+    <p class="note-ex">※ 시안용 예시입니다. 실제 진행 사례로 교체합니다. 고객사명과 강사명은 공개하지 않습니다.</p>
   </div>
 </section>
 
 <!-- COLUMN -->
-<section id="column">
+<section class="column" id="column">
   <div class="wrap">
     <div class="col-head">
-      <div>
-        <div class="eyebrow">플랜듀 칼럼</div>
-        <h2 class="sec" style="margin-bottom:0">교육 담당자를 위한 인사이트</h2>
-      </div>
-      <a href="#" class="btn ghost">전체 칼럼 보기</a>
+      <div><div class="eyebrow">플랜듀 칼럼</div><h2 class="sec" style="margin-bottom:0">교육 담당자를 위한 이야기</h2></div>
+      <a href="#" class="btn ghost">블로그 바로가기</a>
     </div>
     <div class="cols">
-      <a href="#"><div class="thumb t1">2박 3일 연수<br>시간표 짜는 법</div><div class="body"><small>연수 기획</small><h3>2박 3일 연수, 첫날 저녁이 성패를 가르는 이유</h3></div></a>
-      <a href="#"><div class="thumb t2">AI 교육,<br>어디서부터?</div><div class="body"><small>AI 교육</small><h3>우리 직원 수준에 맞는 AI 교육 고르는 3가지 기준</h3></div></a>
-      <a href="#"><div class="thumb t3">좋은 강사<br>고르는 법</div><div class="body"><small>강사 섭외</small><h3>프로필보다 중요한 것: 강사 사전 미팅에서 꼭 물어볼 질문</h3></div></a>
+      <a href="#"><div class="thumb t1">사고 없는 연수는<br>계획에서 갈린다</div><div class="body"><small>연수 기획</small><h3>외부 연수, 강사가 다른 장소로 간 날 생긴 일</h3></div></a>
+      <a href="#"><div class="thumb t2">우리 회사에 맞는<br>AI 교육 고르기</div><div class="body"><small>AI 교육</small><h3>직원 수준이 제각각일 때 AI 교육을 나누는 법</h3></div></a>
+      <a href="#"><div class="thumb t3">워크숍이<br>힐링이 되려면</div><div class="body"><small>힐링 워크숍</small><h3>쉼과 배움, 둘 다 잡는 워크숍 하루 구성</h3></div></a>
     </div>
   </div>
 </section>
@@ -366,25 +327,28 @@ footer .logo i::after { border-color: #0D1716; }
 <section class="contact" id="contact">
   <div class="wrap">
     <div>
-      <div class="eyebrow">교육 문의</div>
-      <h2 class="sec">목적만 알려 주세요.<br>설계는 플랜듀가 합니다.</h2>
-      <p class="lead">문의를 남겨 주시면 1영업일 안에 대표가 직접 연락드립니다.</p>
+      <div class="eyebrow">문의 · 섭외</div>
+      <h2 class="sec">목적만 알려 주세요.<br>핏은 플랜듀가 맞춥니다.</h2>
+      <p class="lead">남겨 주시면 1영업일 안에 연락드립니다. 소개서 대신 이 페이지 링크를 공유하셔도 좋습니다.</p>
       <div class="info">
         <div><b>전화</b><span>010-○○○○-○○○○</span></div>
-        <div><b>이메일</b><span>contact@○○○.com</span></div>
+        <div><b>이메일</b><span>contact@○○○.co.kr</span></div>
         <div><b>상담</b><span>평일 09:00 – 18:00</span></div>
       </div>
     </div>
     <form onsubmit="event.preventDefault(); this.querySelector('button').textContent='접수되었습니다 ✓';">
-      <label>회사(기관)명<input required placeholder="예) ○○주식회사"></label>
-      <label>담당자 성함<input required placeholder="홍길동"></label>
-      <label>연락처<input required type="tel" placeholder="010-0000-0000"></label>
-      <label>이메일<input type="email" placeholder="name@company.com"></label>
-      <label>교육 유형<select><option>AI 업무혁신</option><option>연수 · 워크숍</option><option>리더십</option><option>신입사원</option><option>조직문화 · 소통</option><option>기타 / 상담 후 결정</option></select></label>
-      <label>예상 인원 · 일정<input placeholder="예) 80명 · 2027년 3월"></label>
-      <label class="full">교육 목적 · 요청 사항<textarea placeholder="어떤 변화를 기대하시는지 자유롭게 적어 주세요."></textarea></label>
+      <div class="seg">
+        <label><input type="radio" name="t" checked><span>교육 프로그램 문의</span></label>
+        <label><input type="radio" name="t"><span>강사 섭외</span></label>
+      </div>
+      <label class="f">회사(기관)명<input required placeholder="예) ○○주식회사"></label>
+      <label class="f">담당자 성함<input required placeholder="홍길동"></label>
+      <label class="f">연락처<input required type="tel" placeholder="010-0000-0000"></label>
+      <label class="f">교육 형태<select><option>기업 교육 · 특강</option><option>힐링 워크숍</option><option>외부 연수 · 필드 트립</option><option>원데이 클래스</option><option>아직 모르겠어요 (상담 후 결정)</option></select></label>
+      <label class="f full">대상 · 인원 · 희망 일정<input placeholder="예) 영업조직 40명 · 2027년 3월 중"></label>
+      <label class="f full">교육 목적 · 고민<textarea placeholder="어떤 변화를 기대하시는지 편하게 적어 주세요."></textarea></label>
       <label class="agree full"><input type="checkbox" required> 개인정보 수집·이용에 동의합니다.</label>
-      <button class="btn primary full" type="submit">상담 신청하기 →</button>
+      <button class="btn primary full" type="submit">보내기 →</button>
     </form>
   </div>
 </section>
@@ -392,15 +356,17 @@ footer .logo i::after { border-color: #0D1716; }
 <footer>
   <div class="wrap">
     <div>
-      <div class="logo"><i></i>플랜듀</div>
-      <p style="margin:12px 0 0">기업교육 컨설팅 · 커리큘럼 설계 · 강사 매칭</p>
+      <div class="logo"><i></i>플랜듀<small>PLANDUE</small></div>
+      <p style="margin:12px 0 0">교육에 딱, 핏을 맞추다 — 맞춤형 기업교육 · 워크숍 · 연수</p>
     </div>
     <div style="text-align:right">
-      <p style="margin:0">대표 ○○○ · 사업자등록번호 ○○○-○○-○○○○○</p>
-      <p style="margin:4px 0 0">주소 ○○시 ○○구 ○○로 ○○ · © 2026 플랜듀</p>
+      <p style="margin:0">상호 플랜듀 · 사업자등록번호 ○○○-○○-○○○○○</p>
+      <p style="margin:4px 0 0">주소 ○○시 ○○구 ○○로 ○○ · © 2026 PLANDUE</p>
     </div>
   </div>
 </footer>
+
+<div class="mbar"><a href="#cases" class="btn ghost">지난 교육</a><a href="#contact" class="btn primary">섭외하기</a></div>
 
 </body>
 </html>

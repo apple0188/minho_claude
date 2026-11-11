@@ -23,6 +23,7 @@ for (const [label, vp] of [['desktop', { width: 1440, height: 900 }], ['mobile',
   const p = await browser.newPage({ viewport: vp, deviceScaleFactor: 2 });
   await p.goto(hp, { waitUntil: 'load' });
   await p.evaluate(() => document.fonts.ready);
+  await p.waitForTimeout(4500); // 오프닝 애니메이션이 끝날 때까지 대기
   await p.screenshot({ path: path.join(out, `플랜듀_홈페이지시안_${label}.png`), fullPage: true });
   console.log('PNG', label);
   await p.close();
