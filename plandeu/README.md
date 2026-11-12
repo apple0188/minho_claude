@@ -39,6 +39,7 @@
 - 계약서 v2: https://drive.google.com/file/d/1g-2fP0Zu2_nWia-ee-Mr8dPvP-_fL8bZ/view
 - 기획서 v2: https://drive.google.com/file/d/1vxdAELOzOmsa5uIPxaUvDc7RMwStsM6A/view
 - **홈페이지 시안 폴더 (링크 공유)**: https://drive.google.com/drive/folders/1ptze22IV4zg8zcXs1c_cihI9YFqSwCMR
+  - 11/12 퀄리티 개선판(v3)으로 교체. 이전 파일은 내 드라이브 최상위에 "구버전_" 이름으로 옮겨 둠
   - 휴대폰 화면 캡처 4장 + 오프닝 영상 7초. `node plandeu/capture-phone.mjs`로 다시 만들어 `plandeu/share/`에 저장
   - 전체 페이지 긴 PNG는 카톡에서 축소되어 글자가 안 보이므로 보내지 말 것
 - 공유된 견적서 v2 PDF에는 슬로건이 옛 문구("교육에 딱…")로 남아 있음. 저장소 원본은 수정함. 다음 버전부터 반영
@@ -65,6 +66,13 @@
 - 섭외하기 버튼을 누르면 문의 폼이 강사 섭외 탭으로 열림. 오프닝은 세션당 한 번, 탭하면 건너뜀
 - 모바일 핏 카드는 화면에 들어올 때 애니메이션 시작. eyebrow 글자 대비 개선
 - 남은 것: OG 이미지(카톡 링크 미리보기 그림), 실제 사진·사례·연락처
+
+## 홈페이지 v3 (11/12 퀄리티 개선)
+- `homepage/` 폴더 자체가 서버 업로드용이다: index.html, favicon.svg, og.png(카톡 링크 미리보기), fonts/
+- 폰트는 jsdelivr의 Pretendard dynamic-subset을 먼저 쓰고, 안 되면 fonts/의 로컬 폰트를 씀
+- **FTP 업로드는 이 클라우드 환경에서 불가**: 프록시가 HTTPS(443)만 통과시킨다. 사용자가 FTP 프로그램으로 직접 올리거나, 원격 제어로 사용자 PC 폴더에 연결해서 올려야 함
+- "제라스" 호스팅의 FTP 정보는 아직 받지 못함. 비밀번호는 저장소에 적지 말 것
+- 업로드한 뒤에는 og:image를 절대주소(https://도메인/og.png)로 바꿔야 카톡 미리보기가 확실히 뜸
 
 ## 망설이는 고객 대응 전략
 - 지금은 거절이 아니라 큰 결정 직후의 불안으로 본다. 설득하지 말고 결정 부담을 줄인다

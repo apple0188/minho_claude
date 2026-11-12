@@ -13,9 +13,9 @@ const browser = await chromium.launch();
 const ctx = await browser.newContext({ ...phone });
 const p = await ctx.newPage();
 await p.goto(url); await p.evaluate(() => document.fonts.ready); await p.waitForTimeout(3200);
-const shots = [['1_첫화면', null], ['2_핏카드', '.fit'], ['3_지난교육', '#cases'], ['4_문의', '#contact form']];
-for (const [name, sel] of shots) {
-  if (sel) { await p.evaluate(s => { const el = document.querySelector(s); window.scrollTo(0, el.getBoundingClientRect().top + scrollY - 70); }, sel); await p.waitForTimeout(2200); }
+const shots = [['1_첫화면', null, 0], ['2_핏카드', '.fit', 96], ['3_지난교육', '#cases', 4], ['4_문의', '#contact form', 76]];
+for (const [name, sel, off] of shots) {
+  if (sel) { await p.evaluate(([s, o]) => { const el = document.querySelector(s); window.scrollTo(0, el.getBoundingClientRect().top + scrollY - o); }, [sel, off]); await p.waitForTimeout(2200); }
   await p.screenshot({ path: path.join(out, `플랜듀_시안_${name}.png`) });
   console.log('PNG', name);
 }
